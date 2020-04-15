@@ -60,7 +60,6 @@
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GAME.cs" />
     <Compile Include="Karty\Kreatory Kart\CardCreatorPersons.cs" />
     <Compile Include="Karty\KartyRęka\enumProffesion.cs" />
     <Compile Include="Karty\KartyRęka\HandCardItem.cs" />
@@ -81,8 +80,8 @@
     </Compile>
     <Compile Include="Karty\KartyRęka\enumColour.cs" />
     <Compile Include="Karty\Kreatory Kart\CardCreatorItems.cs" />
-    <Compile Include="FolderPlayer\Player.cs" />
-    <Compile Include="FolderPlayer\SpecjalPlayerSkill.cs" />
+    <Compile Include="Folder_Player\MyPlayer.cs" />
+    <Compile Include="Folder_Player\SpecjalPlayerSkill.cs" />
     <Compile Include="View\FormGame.cs">
       <SubType>Form</SubType>
     </Compile>

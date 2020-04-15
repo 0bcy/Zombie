@@ -18,10 +18,23 @@ namespace Gra_Zombie_2020
             InitializeComponent();
         }
 
+        int Round;
+        List<MyPlayer> Players = new List<MyPlayer>();
+
         private void button1_Click(object sender, EventArgs e)
         {
-            FormGame MyFormGame = new FormGame(1);
+            Round = 1;
+            BuildNewPlayer();
+            FormGame MyFormGame = new FormGame(Round, Players);
             MyFormGame.Show();
+        }
+
+        public void BuildNewPlayer()
+        {
+            Players.Add(new MyPlayer(textBoxName1.Text, 0));
+            Players.Add(new MyPlayer(textBoxName2.Text, 1));
+            Players.Add(new MyPlayer(textBoxName3.Text, 2));
+            Players.Add(new MyPlayer(textBoxName4.Text, 3));
         }
     }
 }

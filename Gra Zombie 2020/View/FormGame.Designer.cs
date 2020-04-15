@@ -64,6 +64,7 @@
             this.textBoxTour = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxRound = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_P1_P8_ColourNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_P1_P8_Type)).BeginInit();
@@ -412,11 +413,22 @@
             this.textBoxRound.Size = new System.Drawing.Size(50, 22);
             this.textBoxRound.TabIndex = 31;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(888, 7);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(88, 50);
+            this.button5.TabIndex = 32;
+            this.button5.Text = "Zakończ Turę";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 614);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.textBoxRound);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -500,5 +512,6 @@
         private System.Windows.Forms.TextBox textBoxTour;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxRound;
+        private System.Windows.Forms.Button button5;
     }
 }

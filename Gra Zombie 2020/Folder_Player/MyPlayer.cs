@@ -9,31 +9,35 @@ namespace Gra_Zombie_2020
 {
     public class MyPlayer
     {
-        String Name;
-        int Level;
-        int MaxRound;
-        int MaxPerson;
-        int MaxItem;
-
-        int Round;
+        public String Name;
+        public int Number;
+        public int MaxRound;
+        public int MyRound;
+        public int MaxPerson;
+        public int MaxItem;
 
         List<EnumSpecialCardSkill> MySkills = new List<EnumSpecialCardSkill>();
 
         List<HandCardItem> PlayerItems = new List<HandCardItem>();
         List<HandCardPerson> PlayerPersons = new List<HandCardPerson>();
 
+        public MyPlayer(string Name, int Number)
+        {
+            this.Name = Name; MaxItem = 5; MaxPerson = 5; MaxRound = 3; this.Number = Number; MyRound = 0;
+            if(Number==0)
+            { MyRound = 3; }
+        }
+
         public MyPlayer(string Name, List<EnumSpecialCardSkill> MySkills)
         { this.Name = Name; this.MySkills = MySkills; MaxItem = 5; MaxPerson = 5; MaxRound = 3; }
 
         public void NewRound()
-        { Round = MaxRound; }
+        { MyRound = MaxRound; }
 
         public bool CanIGo()
-        { return Round > 0; }
+        { return MyRound > 0; }
 
-
-
-
+    
 
 
         public void RemoveItem(int A) // ODEJMIJ PRZEDMIOT
@@ -44,12 +48,12 @@ namespace Gra_Zombie_2020
 
         public void AddItem(HandCardItem MyItem) // DODAJ PRZEDMIOT
         {
-            if (Round > 0)
+            if (MyRound > 0)
             {
                 if (PlayerItems.Count <= MaxItem)
                 {
                     PlayerItems.Add(MyItem);
-                    Round--;
+                    MyRound--;
                 }
                 else
                 { MessageBox.Show("Nie masz miejsca"); }
@@ -58,12 +62,12 @@ namespace Gra_Zombie_2020
 
         public void AddPerson(HandCardPerson MyPerson) // DODAJ OSOBE
         {
-            if (Round > 0)
+            if (MyRound > 0)
             {
                 if (PlayerPersons.Count <= MaxPerson)
                 {
                     PlayerPersons.Add(MyPerson);
-                    Round--;
+                    MyRound--;
                 }
                 else
                 { MessageBox.Show("Nie masz miejsca"); }

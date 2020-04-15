@@ -13,11 +13,15 @@ namespace Gra_Zombie_2020.Karty.Player.View
 {
     public partial class FormGame : Form
     {
-        public FormGame(int Round)
+        public FormGame(int Round, List<MyPlayer> Players)
         {
             InitializeComponent();
             this.Round = Round;
+            this.Players = Players;
             GameCreator(Round);
+            ActivePlayer = 0;
+
+            RefreshMap();
         }
 
         int Round;
@@ -42,20 +46,55 @@ namespace Gra_Zombie_2020.Karty.Player.View
 
             GameItems = CreateItems.UseCardCreator();
             GamePersons = CreatePersons.UseCardCreator();
-            GameZombies=CreateZombies.UseCardCreator(Round) ;
-            GamePoliceman=CreatePoliceman.UseCardCreator() ;
-            GameSolidier=CreateSolidier.UseCardCreator() ;
-            GameMercenary= CreateMercenary.UseCardCreator(Round);
+            GameZombies = CreateZombies.UseCardCreator(Round);
+            GamePoliceman = CreatePoliceman.UseCardCreator();
+            GameSolidier = CreateSolidier.UseCardCreator();
+            GameMercenary = CreateMercenary.UseCardCreator(Round);
         }
+
+
 
         private void button2_Click(object sender, EventArgs e) // Szukaj przedmiotów
         {
+            if (Players[ActivePlayer].CanIGo())
+            {
+                Players[ActivePlayer].AddItem(GameItems[1]);
+                GameItems.RemoveAt(1);
+            }
+            else
+            { MessageBox.Show("nie"); }
 
+            RefreshMap();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e) // ZAKOŃCZ RUCH
+        { NextRound(); }
+
+        public void NextRound()
+        {
+            Players[ActivePlayer].MyRound = 0;
+
+            if (ActivePlayer == 3)
+            { ActivePlayer = 0; }
+            else
+            { ActivePlayer++; }
+
+            Players[ActivePlayer].MyRound = Players[ActivePlayer].MaxRound ;
+
+            RefreshMap();
+        }
+
+        public void RefreshMap()
+        {
+            textBoxRound.Text = Players[ActivePlayer].MyRound.ToString();
+        }
+
+
     }
 }
